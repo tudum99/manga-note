@@ -18,3 +18,24 @@
 .ico_keyboard {
   background-image: url("../images/ico_keyboard.svg");
 }
+
+.ico_copy {
+  background-image: url("../images/ico_copy.svg");
+}
+
+.ico_google_translate {
+  background-image: url("../images/ico_google_translate.svg");
+}
+
+.ico_clear {
+  background-image: url("../images/ico_clear.svg");
+  filter: brightness(0) saturate(100%) invert(17%) sepia(75%) saturate(4659%) hue-rotate(10deg) brightness(87%) contrast(103%);
+}
+
+.ico_refresh {
+  background-image: url("../images/ico_refresh.svg");
+}
+
+.ico_separator {
+  background-image: url("../images/ico_separator.svg");
+}

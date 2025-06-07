@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routes'
 
 import { Quasar } from 'quasar'
-import 'quasar/src/css/index.sass';
+import quasarUserOptions from './quasar-user-options'
 
 const router = createRouter({
   history: createWebHistory(),   // History mode
@@ -17,6 +17,6 @@ const app = createApp(App)
 
 app.use(router)
 
-app.use(Quasar)
+app.use(Quasar, quasarUserOptions)
 
 app.mount('#app')

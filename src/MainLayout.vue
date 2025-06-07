@@ -18,26 +18,45 @@
     v-if="memoOpen"
     ref="memoRef"
     class="memo"
-    @mousedown="startDrag"
   >
     <button class="close_btn" @click="toggleMemo">
       <div class="ico ico_close"></div>
     </button>
 
-    <div class="row flex mb20">
+    <div class="flex mb20">
       <div class="input_label">Input:</div>
-      <div class="input_area">
-        <textarea v-model="contents"></textarea>
-        <div class="column">
-          <button class="input_btn mb8">
-            <div class="ico ico_keyboard" @click="toggleKeyboard"></div>
-          </button>
+
+      <div class="flex flex1 column">
+
+        <div class="align_flex_end flex1 row gap8 mb8">
+          <textarea v-model="input" id="input"></textarea>
           <button class="input_btn search" @click="search">
             <div class="ico ico_search"></div>
           </button>
         </div>
+
+        <div class="row gap8">
+          <button class="input_btn" @click="copyInput">
+            <div class="ico ico_copy"></div>
+          </button>
+          <button class="input_btn" @click="toggleKeyboard">
+            <div class="ico ico_keyboard"></div>
+          </button>
+          <button class="input_btn" @click="googleTranslate">
+            <div class="ico ico_google_translate"></div>
+          </button>
+
+          <button class="input_btn ml8" @click="refreshInput">
+            <div class="ico ico_refresh"></div>
+          </button>
+          <button class="input_btn" @click="clearInput">
+            <div class="ico ico_clear"></div>
+          </button>
+        </div>
       </div>
     </div>
+
+<div class="simple-keyboard">{{ keyboard }}</div>
 
     <div class="row gap5">
       <div class="output_label">Output:</div>
@@ -55,6 +74,8 @@ import './assets/css/memo.css';
 import './assets/css/common.css';
 import './assets/css/icon.css';
 import { ref, onBeforeUnmount } from 'vue';
+import * as notify from "./utils/notify.js";
+
 //import { translate } from './ask.js';
 
 //const iframeSrc = "https://bato.si/title/157271-en-kaijuu-no-hanataba/2847902-vol_1-ch_1";
@@ -62,51 +83,50 @@ import { ref, onBeforeUnmount } from 'vue';
 //const iframeSrc = "https://bato.to/search";
 const iframeSrc = "https://bato.to/chapter/2901842";
 
-const input = ref('');
 const output = ref('');
-const contents = 
-`1. Give a hiragana pronunciation of the following input in japanese.
+const input = ref(`1. Give a hiragana pronunciation of the following input in japanese.
 2. Translate it from Japanese to English.
-Input: ${input.value}`;
+Input: `);
 const memoOpen = ref(true);
 const memoRef = ref(null);
-let isDragging = false;
-let offsetX = 0;
-let offsetY = 0;
-
-function startDrag(e) {
-  if (!memoRef.value) return;
-
-  isDragging = true;
-
-  const rect = memoRef.value.getBoundingClientRect();
-  offsetX = e.clientX - rect.left;
-  offsetY = e.clientY - rect.top;
-
-  document.addEventListener('mousemove', drag);
-  document.addEventListener('mouseup', stopDrag);
-}
-
-function drag(e) {
-  if (!isDragging || !memoRef.value) return;
-
-  memoRef.value.style.left = `${e.clientX - offsetX}px`;
-  memoRef.value.style.top = `${e.clientY - offsetY}px`;
-}
-
-function stopDrag() {
-  isDragging = false;
-  document.removeEventListener('mousemove', drag);
-  document.removeEventListener('mouseup', stopDrag);
-}
 
 function search() {
   console.log('AAA');
-  //translate(contents);
+  //translate(input);
 }
 
-function toggleKeyboard() {
-  console.log('aa')
+function copyInput() {
+  const inputText = document.getElementById('input');
+  inputText.select();
+  inputText.setSelectionRange(0, 99999); // for mobile devices
+  navigator.clipboard.writeText(inputText.value)
+    .then(() => {
+      notify.copy("Copied", { timeout: 500 });
+    })
+}
+
+function googleTranslate() {
+  const inputText = input.value;
+  const encodedText = encodeURIComponent(inputText);
+  const url = `https://translate.google.com/?hl=ru&sl=ja&tl=en&text=${encodedText}&op=translate`;
+
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+  const popupWidth = 800;
+  const popupHeight = (2 * screenHeight) / 3;
+
+  const popup = window.open(url, 'Google translate', `scrollbars=1,resizable=yes,width=${popupWidth},height=${popupHeight},top=${screenHeight},right=${screenWidth}`);
+  popup.focus();
+}
+
+function refreshInput() {
+  input.value = `1. Give a hiragana pronunciation of the following input in japanese.
+2. Translate it from Japanese to English.
+Input: `;
+}
+
+function clearInput() {
+  input.value = '';
 }
 
 function toggleMemo() {
@@ -114,8 +134,8 @@ function toggleMemo() {
 }
 
 onBeforeUnmount(() => {
-  document.removeEventListener('mousemove', drag);
-  document.removeEventListener('mouseup', stopDrag);
+  //document.removeEventListener('mousemove', drag);
+  //document.removeEventListener('mouseup', stopDrag);
 });
 
 </script>

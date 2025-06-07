@@ -159,6 +159,10 @@
   align-items: end;
 }
 
+.align_flex_end {
+  align-items: flex-end;
+}
+
 .align_normal {
   align-items: normal;
 }
