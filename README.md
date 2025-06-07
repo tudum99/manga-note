@@ -1,6 +1,6 @@
 npm install @google/genai
 
-# manga
+# manga-note
 
 ## Project setup
 ```
