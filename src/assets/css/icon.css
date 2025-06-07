@@ -1,0 +1,20 @@
+.ico {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.ico_close {
+  background-image: url("../images/ico_close.svg");
+}
+
+.ico_search {
+  background-image: url("../images/ico_search.svg");
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7470%) hue-rotate(217deg) brightness(98%) contrast(100%);
+}
+
+.ico_keyboard {
+  background-image: url("../images/ico_keyboard.svg");
+}

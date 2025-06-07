@@ -1,3 +1,5 @@
+npm install @google/genai
+
 # manga
 
 ## Project setup

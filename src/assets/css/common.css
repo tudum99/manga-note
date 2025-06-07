@@ -1,0 +1,224 @@
+.font_500 {
+  font-weight: 500;
+}
+
+.font_600 {
+  font-weight: 600;
+}
+
+.font_700 {
+  font-weight: 700;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb12 {
+  margin-bottom: 12px;
+}
+
+.mb15 {
+  margin-bottom: 15px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb25 {
+  margin-bottom: 25px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt12 {
+  margin-top: 12px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt25 {
+  margin-top: 25px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.ml8 {
+  margin-left: 8px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+.mr4 {
+  margin-right: 4px;
+}
+.mr3 {
+  margin-right: 3px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mr8 {
+  margin-right: 8px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.padding0 {
+  padding: 0 !important;
+}
+
+.padding5 {
+  padding: 5px;
+}
+.pr6 {
+  padding-right: 6px;
+}
+.padding10 {
+  padding: 10px;
+}
+
+
+.flex {
+  display: flex;
+}
+.flex1{
+  flex: 1;
+}
+
+.row, .column, .flex {
+  display: flex;
+/* flex-wrap: nowrap !important; */
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap !important;
+}
+
+.nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.align_start {
+  align-items: start;
+}
+
+.align_end {
+  align-items: end;
+}
+
+.align_normal {
+  align-items: normal;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.justify_s_b {
+  justify-content: space-between;
+}
+
+.justify_end {
+  justify-content: end;
+}
+
+.justify_start {
+  justify-content: start;
+}
+
+.gap3 {
+  gap: 3px;
+}
+
+.gap5 {
+  gap: 5px;
+}
+
+.gap8 {
+  gap: 8px;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+.gap16 {
+  gap: 16px;
+}
+
+.gap20 {
+  gap: 20px;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.width_100 {
+  width: 100%;
+}
+
+body.desktop .q-focusable:focus > .q-focus-helper, body.desktop .q-manual-focusable--focused > .q-focus-helper, body.desktop .q-hoverable:hover > .q-focus-helper {
+  background: var(--q-hover-color) !important;
+}
